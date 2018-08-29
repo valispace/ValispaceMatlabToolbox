@@ -9,7 +9,9 @@ function ValispaceMain()
     disp('2)  ValispacePull()                                                   % optional: pull all Valis for faster access or access via name');
     disp('3a) ValispaceGetVali("MySat.Mass")                                    % get Vali as a struct');
     disp('3b) ValispaceGetValue("MySat.Mass")                                   % get Value');
-    disp('4)  ValispacePushValue("MySat.Mass")                                  % push Value to Valispace');
+    disp('4)  ValispacePushValue("MySat.Mass",value)                            % push Value to Valispace');
+    disp('4b) ValispacePushDataset("MySat.Mass",dataset)                        % push Dataset to Valispace ');
+    disp('4b) Note: The first row is x value and the second row is y value');
     disp('5)  ValispaceGetMatrix(217)                                           % get Matrix Values');
     disp('6)  ValispacePushMatrix(217,[2,3;4,5])                                % push Matrix Values');
     disp(' ');

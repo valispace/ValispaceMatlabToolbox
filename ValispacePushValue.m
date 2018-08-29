@@ -31,11 +31,9 @@ function [ ExecutionStatus ] = ValispacePushValue(name_or_id, value)
 		if isempty(write_vali.(fields{i}))
 			write_vali = rmfield(write_vali,fields(i));
 		end
-	end
-	
-	% set formula
+    end
+    % set formula
     write_vali.formula = string(value);
-
     ReturnVali = webwrite(url,write_vali,write_options);
   
     display("Successfully pushed " + ReturnVali.name + " = " + string(ReturnVali.value) + " " + ReturnVali.unit + " to Valispace.");

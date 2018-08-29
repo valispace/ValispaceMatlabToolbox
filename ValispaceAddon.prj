@@ -1,24 +1,25 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="4185415996" file="C:\vali_code\ValispaceMatlabToolbox\ValispaceAddon.prj" location="C:\vali_code\ValispaceMatlabToolbox" name="ValispaceAddon" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="797057412" file="D:\Users\Carlos\OneDrive - Universidade de Lisboa\Trabalho\Valispace\ValispaceMatlabToolbox\ValispaceMatlabToolbox\ValispaceMatlabToolbox\ValispaceAddon.prj" location="D:\Users\Carlos\OneDrive - Universidade de Lisboa\Trabalho\Valispace\ValispaceMatlabToolbox\ValispaceMatlabToolbox\ValispaceMatlabToolbox" name="ValispaceAddon" target="target.mlapps" target-name="Package App">
     <param.appname>ValispaceAddon</param.appname>
     <param.authnamewatermark>Valispace Team</param.authnamewatermark>
     <param.email>support@valispace.com</param.email>
-    <param.company>Valispace UG (haftungsbeschränkt)</param.company>
+    <param.company>Valispace GmbH</param.company>
     <param.icon />
     <param.icons />
     <param.summary>An addon to access (read/write) to the REST API of the Valispace Software</param.summary>
     <param.description>For more information visit http://docs.valispace.com/user-guide/addons/#matlab</param.description>
-    <param.screenshot>C:\Users\Marco\Google Drive\Valispace\Corporate Design\Logo\light_background.png</param.screenshot>
+    <param.screenshot />
     <param.version>1.2</param.version>
     <param.products.name />
     <param.products.id />
     <param.products.version />
     <param.platforms />
-    <param.output>C:\vali_code\ValispaceMatlabToolbox</param.output>
+    <param.output>D:\Users\Carlos\OneDrive - Universidade de Lisboa\Trabalho\Valispace\ValispaceMatlabToolbox\ValispaceMatlabToolbox\ValispaceMatlabToolbox</param.output>
     <param.guid>7a7b055e-1ee2-469e-80a7-5ed9b086eebc</param.guid>
     <unset>
       <param.icon />
       <param.icons />
+      <param.screenshot />
       <param.products.name />
       <param.products.id />
       <param.products.version />
@@ -36,17 +37,43 @@
       <file>${PROJECT_ROOT}\ValispaceInit.m</file>
       <file>${PROJECT_ROOT}\ValispaceName2Id.m</file>
       <file>${PROJECT_ROOT}\ValispacePull.m</file>
+      <file>${PROJECT_ROOT}\ValispacePushDataset.m</file>
       <file>${PROJECT_ROOT}\ValispacePushMatrix.m</file>
       <file>${PROJECT_ROOT}\ValispacePushValue.m</file>
     </fileset.resources>
     <fileset.package />
     <build-deliverables>
-      <file location="C:\vali_code" name="ValispaceMatlabToolbox" optional="false">C:\vali_code\ValispaceMatlabToolbox</file>
+      <file location="D:\Users\Carlos\OneDrive - Universidade de Lisboa\Trabalho\Valispace\ValispaceMatlabToolbox\ValispaceMatlabToolbox" name="ValispaceMatlabToolbox" optional="false">D:\Users\Carlos\OneDrive - Universidade de Lisboa\Trabalho\Valispace\ValispaceMatlabToolbox\ValispaceMatlabToolbox\ValispaceMatlabToolbox</file>
     </build-deliverables>
     <workflow />
     <matlab>
       <root>C:\Program Files\MATLAB\R2017a</root>
-      <toolboxes />
+      <toolboxes>
+        <toolbox name="fixedpoint" />
+        <toolbox name="matlabcoder" />
+        <toolbox name="matlabhdlcoder" />
+        <toolbox name="embeddedcoder" />
+      </toolboxes>
+      <toolbox>
+        <fixedpoint>
+          <enabled>true</enabled>
+        </fixedpoint>
+      </toolbox>
+      <toolbox>
+        <matlabcoder>
+          <enabled>true</enabled>
+        </matlabcoder>
+      </toolbox>
+      <toolbox>
+        <matlabhdlcoder>
+          <enabled>true</enabled>
+        </matlabhdlcoder>
+      </toolbox>
+      <toolbox>
+        <embeddedcoder>
+          <enabled>true</enabled>
+        </embeddedcoder>
+      </toolbox>
     </matlab>
     <platform>
       <unix>false</unix>
