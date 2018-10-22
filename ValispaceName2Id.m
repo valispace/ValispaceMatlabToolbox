@@ -9,7 +9,7 @@ function [ id, Vali ] = ValispaceName2Id(name)
     end
       
     for vali = ValiList
-        if (lower(vali.name) == lower(name))
+        if (strcmp(lower(vali.name), lower(name)) == 1)
             Vali = vali;
             id = vali.id;
         end

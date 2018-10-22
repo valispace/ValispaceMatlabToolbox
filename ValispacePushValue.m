@@ -16,8 +16,8 @@ function [ ExecutionStatus ] = ValispacePushValue(name_or_id, value)
     write_options.RequestMethod = "put";
     write_options.MediaType = "application/json";
     
-    url = ValispaceLogin.url + "vali/" + string(name_or_id) + "/";
-       
+    url = strcat(ValispaceLogin.url, "vali/", string(name_or_id), "/");
+
     read_vali = webread(url, ValispaceLogin.options);
     
     write_vali = read_vali;
@@ -36,5 +36,5 @@ function [ ExecutionStatus ] = ValispacePushValue(name_or_id, value)
     write_vali.formula = string(value);
     ReturnVali = webwrite(url,write_vali,write_options);
   
-    display("Successfully pushed " + ReturnVali.name + " = " + string(ReturnVali.value) + " " + ReturnVali.unit + " to Valispace.");
+    display(strcat("Successfully pushed ", ReturnVali.name, " = ", string(ReturnVali.value), " ", ReturnVali.unit, " to Valispace."));
 end

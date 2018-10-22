@@ -17,7 +17,7 @@ function [ ExecutionStatus ] = ValispacePushDataset(name_or_id, dataset)
     write_options.RequestMethod = "post";
     write_options.MediaType = "application/json";
     
-    url = ValispaceLogin.url + "vali/" + string(name_or_id) + "/import-dataset/";
+    url = strcat(ValispaceLogin.url, "vali/", string(name_or_id), "/import-dataset/");
        
     % set dataset
     for j=1:sizej
@@ -28,5 +28,5 @@ function [ ExecutionStatus ] = ValispacePushDataset(name_or_id, dataset)
     ReturnVali = webwrite(url,post_data,write_options);
     display("Successfully updated Dataset!");
     
-    %display("Successfully pushed " + ReturnVali.name + " = " + string(ReturnVali.value) + " " + ReturnVali.unit + " to Valispace.");
+    %display(strcat("Successfully pushed ", ReturnVali.name, " = ", string(ReturnVali.value), " ", ReturnVali.unit, " to Valispace."));
 end
