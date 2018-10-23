@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="797057412" file="D:\Users\Carlos\OneDrive - Universidade de Lisboa\Trabalho\Valispace\ValispaceMatlabToolbox\ValispaceMatlabToolbox\ValispaceMatlabToolbox\ValispaceAddon.prj" location="D:\Users\Carlos\OneDrive - Universidade de Lisboa\Trabalho\Valispace\ValispaceMatlabToolbox\ValispaceMatlabToolbox\ValispaceMatlabToolbox" name="ValispaceAddon" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="649989298" file="/home/xernobyl/Valispace/ValispaceMatlabToolbox/ValispaceAddon.prj" location="/home/xernobyl/Valispace/ValispaceMatlabToolbox" name="ValispaceAddon" target="target.mlapps" target-name="Package App">
     <param.appname>ValispaceAddon</param.appname>
     <param.authnamewatermark>Valispace Team</param.authnamewatermark>
     <param.email>support@valispace.com</param.email>
@@ -9,12 +9,12 @@
     <param.summary>An addon to access (read/write) to the REST API of the Valispace Software</param.summary>
     <param.description>For more information visit http://docs.valispace.com/user-guide/addons/#matlab</param.description>
     <param.screenshot />
-    <param.version>1.2</param.version>
+    <param.version>1.3</param.version>
     <param.products.name />
     <param.products.id />
     <param.products.version />
     <param.platforms />
-    <param.output>D:\Users\Carlos\OneDrive - Universidade de Lisboa\Trabalho\Valispace\ValispaceMatlabToolbox\ValispaceMatlabToolbox\ValispaceMatlabToolbox</param.output>
+    <param.output>/home/xernobyl/Valispace/ValispaceMatlabToolbox</param.output>
     <param.guid>7a7b055e-1ee2-469e-80a7-5ed9b086eebc</param.guid>
     <unset>
       <param.icon />
@@ -27,67 +27,44 @@
       <param.output />
     </unset>
     <fileset.main>
-      <file>${PROJECT_ROOT}\ValispaceMain.m</file>
+      <file>${PROJECT_ROOT}/ValispaceMain.m</file>
     </fileset.main>
     <fileset.depfun />
     <fileset.resources>
-      <file>${PROJECT_ROOT}\ValispaceGetMatrix.m</file>
-      <file>${PROJECT_ROOT}\ValispaceGetVali.m</file>
-      <file>${PROJECT_ROOT}\ValispaceGetValue.m</file>
-      <file>${PROJECT_ROOT}\ValispaceInit.m</file>
-      <file>${PROJECT_ROOT}\ValispaceName2Id.m</file>
-      <file>${PROJECT_ROOT}\ValispacePull.m</file>
-      <file>${PROJECT_ROOT}\ValispacePushDataset.m</file>
-      <file>${PROJECT_ROOT}\ValispacePushMatrix.m</file>
-      <file>${PROJECT_ROOT}\ValispacePushValue.m</file>
+      <file>${PROJECT_ROOT}/ValispaceGet.m</file>
+      <file>${PROJECT_ROOT}/ValispaceGetMatrix.m</file>
+      <file>${PROJECT_ROOT}/ValispaceGetVali.m</file>
+      <file>${PROJECT_ROOT}/ValispaceGetValue.m</file>
+      <file>${PROJECT_ROOT}/ValispaceInit.m</file>
+      <file>${PROJECT_ROOT}/ValispaceName2Id.m</file>
+      <file>${PROJECT_ROOT}/ValispacePost.m</file>
+      <file>${PROJECT_ROOT}/ValispacePull.m</file>
+      <file>${PROJECT_ROOT}/ValispacePushDataset.m</file>
+      <file>${PROJECT_ROOT}/ValispacePushMatrix.m</file>
+      <file>${PROJECT_ROOT}/ValispacePushValue.m</file>
     </fileset.resources>
     <fileset.package />
     <build-deliverables>
-      <file location="D:\Users\Carlos\OneDrive - Universidade de Lisboa\Trabalho\Valispace\ValispaceMatlabToolbox\ValispaceMatlabToolbox" name="ValispaceMatlabToolbox" optional="false">D:\Users\Carlos\OneDrive - Universidade de Lisboa\Trabalho\Valispace\ValispaceMatlabToolbox\ValispaceMatlabToolbox\ValispaceMatlabToolbox</file>
+      <file location="/home/xernobyl/Valispace" name="ValispaceMatlabToolbox" optional="false">/home/xernobyl/Valispace/ValispaceMatlabToolbox</file>
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>C:\Program Files\MATLAB\R2017a</root>
-      <toolboxes>
-        <toolbox name="fixedpoint" />
-        <toolbox name="matlabcoder" />
-        <toolbox name="matlabhdlcoder" />
-        <toolbox name="embeddedcoder" />
-      </toolboxes>
-      <toolbox>
-        <fixedpoint>
-          <enabled>true</enabled>
-        </fixedpoint>
-      </toolbox>
-      <toolbox>
-        <matlabcoder>
-          <enabled>true</enabled>
-        </matlabcoder>
-      </toolbox>
-      <toolbox>
-        <matlabhdlcoder>
-          <enabled>true</enabled>
-        </matlabhdlcoder>
-      </toolbox>
-      <toolbox>
-        <embeddedcoder>
-          <enabled>true</enabled>
-        </embeddedcoder>
-      </toolbox>
+      <root>/usr/local/MATLAB/R2018b</root>
+      <toolboxes />
     </matlab>
     <platform>
-      <unix>false</unix>
+      <unix>true</unix>
       <mac>false</mac>
-      <windows>true</windows>
+      <windows>false</windows>
       <win2k>false</win2k>
       <winxp>false</winxp>
       <vista>false</vista>
-      <linux>false</linux>
+      <linux>true</linux>
       <solaris>false</solaris>
-      <osver>6.2</osver>
+      <osver>4.14.74-1-MANJARO</osver>
       <os32>false</os32>
       <os64>true</os64>
-      <arch>win64</arch>
+      <arch>glnxa64</arch>
       <matlab>true</matlab>
     </platform>
   </configuration>
