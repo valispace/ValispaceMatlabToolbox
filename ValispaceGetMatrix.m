@@ -10,7 +10,7 @@ function [ Matrix, MatrixNames, MatrixValiIDs ] = ValispaceGetMatrix(id)
     
   
 
-    url = ValispaceLogin.url + 'matrix/' + id + '/';
+    url = strcat(ValispaceLogin.url, 'matrix/', id, '/');
     MatrixData = webread(url, ValispaceLogin.options);
   
     Matrix = [];
