@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="3105607818" file="/home/xernobyl/Valispace/ValispaceMatlabToolbox/ValispaceAddon.prj" location="/home/xernobyl/Valispace/ValispaceMatlabToolbox" name="ValispaceAddon" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="1236410588" file="/home/xernobyl/Valispace/ValispaceMatlabToolbox/ValispaceAddon.prj" location="/home/xernobyl/Valispace/ValispaceMatlabToolbox" name="ValispaceAddon" target="target.mlapps" target-name="Package App">
     <param.appname>ValispaceAddon</param.appname>
     <param.authnamewatermark>Valispace Team</param.authnamewatermark>
     <param.email>support@valispace.com</param.email>
@@ -43,6 +43,7 @@
       <file>${PROJECT_ROOT}/ValispacePushMatrix.m</file>
       <file>${PROJECT_ROOT}/ValispacePushValue.m</file>
       <file>${PROJECT_ROOT}/ValispacePut.m</file>
+      <file>${PROJECT_ROOT}/ValispaceRequest.m</file>
     </fileset.resources>
     <fileset.package />
     <build-deliverables>
