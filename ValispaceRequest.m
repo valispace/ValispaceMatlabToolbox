@@ -1,4 +1,4 @@
-function [ data ] = ValispacePost(url, data)
+function [ data ] = ValispaceRequest(method, url, data)
 % Custom POST request to the Valispace REST API
     global ValispaceLogin
     
@@ -8,7 +8,7 @@ function [ data ] = ValispacePost(url, data)
     
     options = ValispaceLogin.options;
     
-    options.RequestMethod = "POST";
+    options.RequestMethod = method;
     options.MediaType = "application/json";
 
     url = strcat(ValispaceLogin.url, url);
