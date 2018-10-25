@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="62969275" file="/home/xernobyl/Valispace/ValispaceMatlabToolbox/ValispaceAddon.prj" location="/home/xernobyl/Valispace/ValispaceMatlabToolbox" name="ValispaceAddon" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="230817070" file="/home/xernobyl/Valispace/ValispaceMatlabToolbox/src/ValispaceMatlabToolbox.prj" location="/home/xernobyl/Valispace/ValispaceMatlabToolbox/src" name="ValispaceMatlabToolbox" target="target.mlapps" target-name="Package App">
     <param.appname>ValispaceAddon</param.appname>
     <param.authnamewatermark>Valispace Team</param.authnamewatermark>
     <param.email>support@valispace.com</param.email>
@@ -14,7 +14,7 @@
     <param.products.id />
     <param.products.version />
     <param.platforms />
-    <param.output>/home/xernobyl/Valispace/ValispaceMatlabToolbox</param.output>
+    <param.output>/home/xernobyl/Valispace/ValispaceMatlabToolbox/src</param.output>
     <param.guid>7a7b055e-1ee2-469e-80a7-5ed9b086eebc</param.guid>
     <unset>
       <param.icon />
@@ -47,7 +47,7 @@
     </fileset.resources>
     <fileset.package />
     <build-deliverables>
-      <file location="/home/xernobyl/Valispace" name="ValispaceMatlabToolbox" optional="false">/home/xernobyl/Valispace/ValispaceMatlabToolbox</file>
+      <file location="/home/xernobyl/Valispace/ValispaceMatlabToolbox" name="src" optional="false">/home/xernobyl/Valispace/ValispaceMatlabToolbox/src</file>
     </build-deliverables>
     <workflow />
     <matlab>
