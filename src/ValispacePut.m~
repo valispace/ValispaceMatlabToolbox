@@ -10,21 +10,20 @@ function [ out_data ] = ValispacePut(url, data)
         url = strcat(ValispaceLogin.url, url);
     end
 
-    if verLessThan('matlab', '9.1')    % HeaderFields was introduced in 2016b (9.1)
+    if true %verLessThan('matlab', '9.1')    % HeaderFields was introduced in 2016b (9.1)
+        r = regexp('rest/vali/123', '^(.*/)(\d+)/?$', 'tokens');
+        if length(r) != 0
+             
+        
         get_data = ValispaceGet(url);
         f = fieldnames(data);
         for i = 1:length(f)
             j = f{i};
+            disp(j);
+
             get_data.(j) = data.(j);
         end
-
-        r = regexp(url, '^(.*/)(\d+)/?$', 'tokens');
-        if length(r) ~= 0
-            url = r{1}{1};
-            get_data.('id') = str2num(r{1}{2});
-            %data.('id') = str2num(r{1}{2});
-        end
-
+        disp(get_data);
         out_data = ValispacePost(url, get_data);
 
         % disp('Sorry, at the moment PUT is not available for your version of matlab (>2016b required).');

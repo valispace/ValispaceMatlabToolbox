@@ -1,4 +1,4 @@
-function [ out_data ] = ValispaceGet(url)
+function [ data ] = ValispaceGet(url)
 % Custom GET request to the Valispace REST API
     global ValispaceLogin
     
@@ -6,9 +6,9 @@ function [ out_data ] = ValispaceGet(url)
         error('You first have to run ValispaceInit()');
     end
 
-    if isempty(strfind(url, 'http') ~= 1)
+    if strfind(url, 'http') ~= 1
         url = strcat(ValispaceLogin.url, url);
     end
-
-    out_data = webread(url, ValispaceLogin.options);
+    
+    data = webread(url, ValispaceLogin.options);
 end
