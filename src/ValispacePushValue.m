@@ -29,7 +29,6 @@ function [ ExecutionStatus ] = ValispacePushValue(name_or_id, value)
 	fields = fieldnames(write_vali);
 	for i = 1:numel(fields)
 		if isempty(write_vali.(fields{i}))
-            display(fields(i))
 			write_vali = rmfield(write_vali,fields(i));
 		end
     end
