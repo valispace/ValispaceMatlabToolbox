@@ -8,6 +8,6 @@ function [ ValiList ] = ValispacePull()
     end
     
     options = ValispaceLogin.options;
-    url = strcat(ValispaceLogin.url, 'vali/');
+    url = strcat(ValispaceLogin.url, 'valis/');
     ValiList = rot90(webread(url,options));
 end
