@@ -1,6 +1,6 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="351568873" file="C:\dev\ValispaceMatlabToolbox\src\ValispaceMatlabToolbox.prj" location="C:\dev\ValispaceMatlabToolbox\src" name="ValispaceMatlabToolbox" target="target.mlapps" target-name="Package App">
-    <param.appname>ValispaceAddon</param.appname>
+  <configuration build-checksum="3047562615" file="C:\dev\ValispaceMatlabToolbox\src\ValispaceMatlabToolbox.prj" location="C:\dev\ValispaceMatlabToolbox\src" name="ValispaceMatlabToolbox" target="target.mlapps" target-name="Package App">
+    <param.appname>ValispaceMatlabToolbox</param.appname>
     <param.authnamewatermark>Valispace Team</param.authnamewatermark>
     <param.email>support@valispace.com</param.email>
     <param.company>Valispace GmbH</param.company>
@@ -14,7 +14,7 @@
     <param.products.id />
     <param.products.version />
     <param.platforms />
-    <param.output>C:\dev\ValispaceMatlabToolbox\src</param.output>
+    <param.output>C:\dev\ValispaceMatlabToolbox</param.output>
     <param.guid>7a7b055e-1ee2-469e-80a7-5ed9b086eebc</param.guid>
     <unset>
       <param.icon />
@@ -24,7 +24,6 @@
       <param.products.id />
       <param.products.version />
       <param.platforms />
-      <param.output />
     </unset>
     <fileset.main>
       <file>${PROJECT_ROOT}\ValispaceMain.m</file>
@@ -45,7 +44,7 @@
     </fileset.resources>
     <fileset.package />
     <build-deliverables>
-      <file location="C:\dev\ValispaceMatlabToolbox" name="src" optional="false">C:\dev\ValispaceMatlabToolbox\src</file>
+      <file location="C:\dev" name="ValispaceMatlabToolbox" optional="false">C:\dev\ValispaceMatlabToolbox</file>
     </build-deliverables>
     <workflow />
     <matlab>

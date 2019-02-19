@@ -8,7 +8,7 @@ function [ ExecutionStatus ] = ValispacePushValue(name_or_id, value)
     end
 
     % use name instead of ID
-    if (class(name_or_id) == 'string')
+    if (isa(name_or_id, 'string') || isa(name_or_id, 'char'))
         name_or_id = ValispaceName2Id(name_or_id);
     end
 
@@ -16,7 +16,7 @@ function [ ExecutionStatus ] = ValispacePushValue(name_or_id, value)
     write_options.RequestMethod = 'put';
     write_options.MediaType = 'application/json';
 
-    url = strcat(ValispaceLogin.url, 'vali/', string(name_or_id), '/');
+    url = strcat(ValispaceLogin.url, 'vali/', num2str(name_or_id), '/');
 
     read_vali = webread(url, ValispaceLogin.options);
     
@@ -33,8 +33,8 @@ function [ ExecutionStatus ] = ValispacePushValue(name_or_id, value)
 		end
     end
     % set formula
-    write_vali.formula = string(value);
-    ReturnVali = webwrite(url,write_vali,write_options);
+    write_vali.formula = num2str(value);
+    ReturnVali = webwrite(url, write_vali, write_options);
 
     display(strcat('Successfully pushed ', ReturnVali.name, ' = ', string(ReturnVali.value), ' ', ReturnVali.unit, ' to Valispace.'));
 end
