@@ -25,7 +25,7 @@ function [ out_data ] = ValispacePut(url, data)
             %data.('id') = str2num(r{1}{2});
         end
 
-        out_data = ValispacePost(url, get_data
+        out_data = ValispacePost(url, get_data);
         % disp('Sorry, at the moment PUT is not available for your version of matlab (>2016b required).');
         % access = ValispaceLogin.options.KeyValue
         %json = '{}'
