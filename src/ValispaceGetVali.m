@@ -8,7 +8,7 @@ function [ Vali ] = ValispaceGetVali(name_or_id)
         error('VALISPACE-ERROR: You first have to run ValispaceInit()');
     end
     
-    if ((length(ValiList)==0) && (class(name_or_id) == 'string'))
+    if ((length(ValiList)==0) && (isa(name_or_id, 'string') || isa(name_or_id, 'char')))
         error('VALISPACE-ERROR: If you use this function with a string (Vali-Name), you first need to call ValispacePull().'); 
     end
     
@@ -17,7 +17,7 @@ function [ Vali ] = ValispaceGetVali(name_or_id)
         url = strcat(ValispaceLogin.url, 'vali/', id, '/');
         Vali = webread(url, ValispaceLogin.options);
     else    
-        if (class(name_or_id) == 'string') % A name has been provided
+        if (isa(name_or_id, 'string') || isa(name_or_id, 'char')) % A name has been provided
             [id, Vali] = ValispaceName2Id(name_or_id)
         else % A number has been provided
             for vali = ValiList
