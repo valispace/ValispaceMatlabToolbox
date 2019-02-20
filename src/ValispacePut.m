@@ -6,7 +6,7 @@ function [ out_data ] = ValispacePut(url, data)
         error('You first have to run ValispaceInit()');
     end
 
-    if isempty(strfind(url, 'http') ~= 1)
+    if isempty(strfind(url, 'http'))
         url = strcat(ValispaceLogin.url, url);
     end
 
@@ -26,7 +26,6 @@ function [ out_data ] = ValispacePut(url, data)
         end
 
         out_data = ValispacePost(url, get_data);
-
         % disp('Sorry, at the moment PUT is not available for your version of matlab (>2016b required).');
         % access = ValispaceLogin.options.KeyValue
         %json = '{}'
