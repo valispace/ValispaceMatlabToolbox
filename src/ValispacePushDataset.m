@@ -17,7 +17,7 @@ function [ ExecutionStatus ] = ValispacePushDataset(name_or_id, dataset)
     write_options.RequestMethod = 'post';
     write_options.MediaType = 'application/json';
 
-    url = strcat(ValispaceLogin.url, 'vali/', string(name_or_id), '/import-dataset/');
+    url = strcat(ValispaceLogin.url, 'valis/', string(name_or_id), '/import-dataset/');
 
     % set dataset
     for j=1:sizej

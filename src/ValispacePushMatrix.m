@@ -6,7 +6,7 @@ function ValispacePushMatrix(id,Matrix)
         error('VALISPACE-ERROR: You first have to run ValispaceInit()');
     end
   
-    url = strcat(ValispaceLogin.url, 'matrix/', id, '/');
+    url = strcat(ValispaceLogin.url, 'matrices/', id, '/');
     MatrixData = webread(url, ValispaceLogin.options);
     
     

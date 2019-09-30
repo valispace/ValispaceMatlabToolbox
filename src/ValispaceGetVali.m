@@ -14,7 +14,7 @@ function [ Vali ] = ValispaceGetVali(name_or_id)
     
     if (length(ValiList)==0) % ValispacePull() has not been called and therefore the API is accessed directly
         id = name_or_id;
-        url = strcat(ValispaceLogin.url, 'vali/', num2str(id), '/');
+        url = strcat(ValispaceLogin.url, 'valis/', num2str(id), '/');
         Vali = webread(url, ValispaceLogin.options);
     else    
         if (isa(name_or_id, 'string') || isa(name_or_id, 'char')) % A name has been provided

@@ -50,7 +50,7 @@ function [ ExecutionStatus ] = ValispacePushValue(name_or_id, value)
     write_options.RequestMethod = 'put';
     write_options.MediaType = 'application/json';
 
-    url = strcat(ValispaceLogin.url, 'vali/', num2str(name_or_id), '/');
+    url = strcat(ValispaceLogin.url, 'valis/', num2str(name_or_id), '/');
 
     read_vali = webread(url, ValispaceLogin.options);
 
