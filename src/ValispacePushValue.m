@@ -57,7 +57,11 @@ function [ ExecutionStatus ] = ValispacePushValue(name_or_id, value)
     write_vali = read_vali;
 
     % remove read-only fields
-    write_vali = rmfield(write_vali, blacklist);
+    fields = fieldnames(write_vali);
+    
+    toRemove = fields(ismember(fields,blacklist));
+    
+    write_vali = rmfield(write_vali,toRemove);
 
 	% remove empty fields
 	fields = fieldnames(write_vali);
