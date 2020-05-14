@@ -46,4 +46,4 @@ The source files of the toolbox are in the src folder. To contribute to the tool
 
 ## Version
 
-The current version of the Matlab toolbox is 1.3.4
+The current version of the Matlab toolbox is 1.3.5
