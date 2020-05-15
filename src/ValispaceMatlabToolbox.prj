@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="3048134464" file="C:\Users\eddie\matlabGit\ValispaceMatlabToolbox\src\ValispaceMatlabToolbox.prj" location="C:\Users\eddie\matlabGit\ValispaceMatlabToolbox\src" name="ValispaceMatlabToolbox" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="3986731948" file="C:\Users\eddie\matlabGit\ValispaceMatlabToolbox\src\ValispaceMatlabToolbox.prj" location="C:\Users\eddie\matlabGit\ValispaceMatlabToolbox\src" name="ValispaceMatlabToolbox" target="target.mlapps" target-name="Package App">
     <param.appname>ValispaceMatlabToolbox</param.appname>
     <param.authnamewatermark>Valispace Team</param.authnamewatermark>
     <param.email>support@valispace.com</param.email>

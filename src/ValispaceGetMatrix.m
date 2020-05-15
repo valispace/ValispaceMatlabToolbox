@@ -3,7 +3,6 @@ function [ Matrix, MatrixNames, MatrixValiIDs ] = ValispaceGetMatrix(name_or_id)
 % the names and one with the ValiIDs
     global ValispaceLogin
     global ValiList
-    global MatrixData
     
     if (length(ValispaceLogin)==0) 
         error('VALISPACE-ERROR: You first have to run ValispaceInit()');
