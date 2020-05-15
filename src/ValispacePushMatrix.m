@@ -1,4 +1,4 @@
-function ValispacePushMatrix(id,Matrix)
+function ValispacePushMatrix(name_or_id,Matrix)
 % ValispacePushMatrix() pushes a Matlab Matrix with the values
     global ValispaceLogin
 
@@ -6,10 +6,13 @@ function ValispacePushMatrix(id,Matrix)
         error('VALISPACE-ERROR: You first have to run ValispaceInit()');
     end
   
-    url = strcat(ValispaceLogin.url, 'matrices/', id, '/');
+    % use name instead of ID
+    if (isa(name_or_id, 'string') || isa(name_or_id, 'char'))
+        name_or_id = ValispaceName2Id(name_or_id);
+    end
+    
+    url = strcat(ValispaceLogin.url, 'matrices/', num2str(name_or_id), '/');
     MatrixData = webread(url, ValispaceLogin.options);
-    
-    
     
     if not (isequal(size(Matrix),[MatrixData.number_of_rows,MatrixData.number_of_columns]))
         error('VALISPACE-ERROR: The dimensions of the local and the remote matrix do not match.');
@@ -21,7 +24,7 @@ function ValispacePushMatrix(id,Matrix)
        end
     end
     
-    [ Matrix, MatrixNames, MatrixValiIDs ] = ValispaceGetMatrix(id);
+    [ Matrix, MatrixNames, MatrixValiIDs ] = ValispaceGetMatrix(name_or_id);
     
     
 end

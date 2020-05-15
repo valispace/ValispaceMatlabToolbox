@@ -1,5 +1,6 @@
 function [ id, Vali ] = ValispaceName2Id(name)
     global ValiList
+    global ValiMatrixList
     
     id = 0;
     Vali = [];
@@ -16,6 +17,14 @@ function [ id, Vali ] = ValispaceName2Id(name)
     end
     
     if (id == 0)
-        error('VALISPACE-ERROR: Vali not found')
+        for matri = ValiMatrixList
+            if (strcmp(lower(matri.unique_name), lower(name)) == 1)
+                Vali = matri;
+                id = matri.id;
+            end
+        end
+        if(id == 0)
+            error('VALISPACE-ERROR: Vali not found')
+        end
     end
 end

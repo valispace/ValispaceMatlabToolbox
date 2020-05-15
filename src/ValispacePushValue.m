@@ -12,8 +12,6 @@ function [ ExecutionStatus ] = ValispacePushValue(name_or_id, value)
         'wc_plus',
         'wc_minus',
         'is_part_of_linking_matrix',
-        'mathjax_formula',
-        'mathjax_formula_simple',
         'valis_used',
         'function_data',
         'project',
@@ -22,12 +20,7 @@ function [ ExecutionStatus ] = ValispacePushValue(name_or_id, value)
         'value_baseunit',
         'valis_marked_as_impacted',
         'valis_marked_to_impact_this_vali',
-        'used_by_simulations',
-        'source_simulation',
         'is_part_of_matrix',
-        'subscribed',
-        'old_value',
-        'type_name',
         'used_by_valis',
         'data_type',
         'function_view_plot_min',
@@ -57,7 +50,11 @@ function [ ExecutionStatus ] = ValispacePushValue(name_or_id, value)
     write_vali = read_vali;
 
     % remove read-only fields
-    write_vali = rmfield(write_vali, blacklist);
+    fields = fieldnames(write_vali);
+    
+    toRemove = fields(ismember(fields,blacklist));
+    
+    write_vali = rmfield(write_vali,toRemove);
 
 	% remove empty fields
 	fields = fieldnames(write_vali);
