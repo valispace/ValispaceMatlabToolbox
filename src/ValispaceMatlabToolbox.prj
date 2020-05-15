@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="3986731948" file="C:\Users\eddie\matlabGit\ValispaceMatlabToolbox\src\ValispaceMatlabToolbox.prj" location="C:\Users\eddie\matlabGit\ValispaceMatlabToolbox\src" name="ValispaceMatlabToolbox" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="3543610084" file="D:\Users\Napier\Documents\GitHub\ValispaceMatlabToolbox\src\ValispaceMatlabToolbox.prj" location="D:\Users\Napier\Documents\GitHub\ValispaceMatlabToolbox\src" name="ValispaceMatlabToolbox" target="target.mlapps" target-name="Package App">
     <param.appname>ValispaceMatlabToolbox</param.appname>
     <param.authnamewatermark>Valispace Team</param.authnamewatermark>
     <param.email>support@valispace.com</param.email>
@@ -14,7 +14,7 @@
     <param.products.id />
     <param.products.version />
     <param.platforms />
-    <param.output>C:\Users\eddie\matlabGit\ValispaceMatlabToolbox</param.output>
+    <param.output>D:\Users\Napier\Documents\GitHub\ValispaceMatlabToolbox</param.output>
     <param.guid>7a7b055e-1ee2-469e-80a7-5ed9b086eebc</param.guid>
     <unset>
       <param.icon />
@@ -44,19 +44,12 @@
     </fileset.resources>
     <fileset.package />
     <build-deliverables>
-      <file location="C:\Users\eddie\matlabGit" name="ValispaceMatlabToolbox" optional="false">C:\Users\eddie\matlabGit\ValispaceMatlabToolbox</file>
+      <file location="D:\Users\Napier\Documents\GitHub" name="ValispaceMatlabToolbox" optional="false">D:\Users\Napier\Documents\GitHub\ValispaceMatlabToolbox</file>
     </build-deliverables>
     <workflow />
     <matlab>
       <root>C:\Program Files\MATLAB\R2019b</root>
-      <toolboxes>
-        <toolbox name="matlabcoder" />
-      </toolboxes>
-      <toolbox>
-        <matlabcoder>
-          <enabled>true</enabled>
-        </matlabcoder>
-      </toolbox>
+      <toolboxes />
     </matlab>
     <platform>
       <unix>false</unix>
