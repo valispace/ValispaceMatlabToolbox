@@ -1,0 +1,166 @@
+<deployment-project plugin="plugin.toolbox" plugin-version="1.0">
+  <configuration file="C:\Github\ValispaceMatlabToolbox\ValispaceMatlabToolbox.prj" location="C:\Github\ValispaceMatlabToolbox" name="ValispaceMatlabToolbox" target="target.toolbox" target-name="Package Toolbox">
+    <param.appname>ValispaceMatlabToolbox</param.appname>
+    <param.authnamewatermark>Valispace</param.authnamewatermark>
+    <param.email>support@valispace.com</param.email>
+    <param.company>Altium</param.company>
+    <param.summary>A simple toolbox that provides connectivity to the Valispace API.</param.summary>
+    <param.description>Valispace Matlab Toolbox
+To install the Valispace Matlab Toolbox download the file ValispaceMatlabToolbox.mltbx and install the toolbox via double-click. It will then be active on your Matlab installation but you can disable or uninstall it via the Matlab Add-On Manager.
+
+Usage
+Example usage:
+
+
+% 1) Valispace Login
+ValispaceInit("https://demo.valispace.com","username","password")
+
+% 2) optional: pull all Valis for faster access or access via name
+ValispacePull()
+
+% 3a) get Vali as a struct
+3a) ValispaceGetVali("MySat.Mass")
+
+% 3b) get value
+3b) ValispaceGetValue("MySat.Mass")
+
+% 4) push value to Valispace
+4) ValispacePushValue("MySat.Mass",0)
+
+% 4b) update dataset (x values as first row and y values as second row)
+4b) ValispacePushDataset("MySat.Mass", [0,1,2,3,4,5,6; 10,20,30,40,50,60,70])
+
+% get matrix values from matrix ID
+5)  ValispaceGetMatrix(217)
+
+% push matrix values
+6)  ValispacePushMatrix(217,[2,3;4,5])
+
+% post data through REST API
+7)  ValispacePost(url, data)
+
+% get data in json format through REST API
+8)  ValispaceGet(url)                       
+
+Contribute
+The source files of the toolbox are in the src folder. To contribute to the toolbox, edit those files and create a new package from the ValispaceMatlabToolbox.prj file before submitting a pull request.
+
+Version
+The current version of the Matlab toolbox is 1.3.5</param.description>
+    <param.screenshot>C:\Users\anton.VALISPACE-SM-AS\OneDrive - Altium LLC\Pictures\Valispace\Valispace Logo.png</param.screenshot>
+    <param.version>1.3.5</param.version>
+    <param.output>${PROJECT_ROOT}\ValispaceMatlabToolbox.mltbx</param.output>
+    <param.products.name />
+    <param.products.id />
+    <param.products.version />
+    <param.platforms />
+    <param.guid>c5216cda-eaca-4756-86c2-0fc48a07ef1f</param.guid>
+    <param.exclude.filters />
+    <param.exclude.pcodedmfiles>true</param.exclude.pcodedmfiles>
+    <param.examples />
+    <param.demosxml />
+    <param.apps />
+    <param.registered.apps />
+    <param.docs />
+    <param.getting.started.guide />
+    <param.matlabpath.excludes />
+    <param.javaclasspath.excludes />
+    <param.exported.on.package>false</param.exported.on.package>
+    <param.required.addons />
+    <param.matlab.project.id />
+    <param.matlab.project.name />
+    <param.release.start />
+    <param.release.end />
+    <param.release.current.only>false</param.release.current.only>
+    <param.compatiblity.windows>true</param.compatiblity.windows>
+    <param.compatiblity.macos>true</param.compatiblity.macos>
+    <param.compatiblity.linux>true</param.compatiblity.linux>
+    <param.compatiblity.matlabonline>true</param.compatiblity.matlabonline>
+    <param.installation.map />
+    <param.additional.sw.names />
+    <param.additional.sw.licenses />
+    <param.additional.sw.win.url />
+    <param.additional.sw.mac.url />
+    <param.additional.sw.linux.url />
+    <unset>
+      <param.output />
+      <param.products.name />
+      <param.products.id />
+      <param.products.version />
+      <param.platforms />
+      <param.exclude.filters />
+      <param.exclude.pcodedmfiles />
+      <param.examples />
+      <param.demosxml />
+      <param.apps />
+      <param.registered.apps />
+      <param.docs />
+      <param.getting.started.guide />
+      <param.matlabpath.excludes />
+      <param.javaclasspath.excludes />
+      <param.exported.on.package />
+      <param.required.addons />
+      <param.matlab.project.id />
+      <param.matlab.project.name />
+      <param.release.start />
+      <param.release.end />
+      <param.release.current.only />
+      <param.compatiblity.windows />
+      <param.compatiblity.macos />
+      <param.compatiblity.linux />
+      <param.compatiblity.matlabonline />
+      <param.installation.map />
+      <param.additional.sw.names />
+      <param.additional.sw.licenses />
+      <param.additional.sw.win.url />
+      <param.additional.sw.mac.url />
+      <param.additional.sw.linux.url />
+    </unset>
+    <fileset.rootdir>
+      <file>${PROJECT_ROOT}\src</file>
+    </fileset.rootdir>
+    <fileset.rootfiles>
+      <file>${PROJECT_ROOT}\src\ValispaceGet.m</file>
+      <file>${PROJECT_ROOT}\src\ValispaceGetMatrix.m</file>
+      <file>${PROJECT_ROOT}\src\ValispaceGetVali.m</file>
+      <file>${PROJECT_ROOT}\src\ValispaceGetValue.m</file>
+      <file>${PROJECT_ROOT}\src\ValispaceInit.m</file>
+      <file>${PROJECT_ROOT}\src\ValispaceMain.m</file>
+      <file>${PROJECT_ROOT}\src\ValispaceMatlabToolboxApp.m</file>
+      <file>${PROJECT_ROOT}\src\ValispaceName2Id.m</file>
+      <file>${PROJECT_ROOT}\src\ValispacePost.m</file>
+      <file>${PROJECT_ROOT}\src\ValispacePull.m</file>
+      <file>${PROJECT_ROOT}\src\ValispacePushDataset.m</file>
+      <file>${PROJECT_ROOT}\src\ValispacePushMatrix.m</file>
+      <file>${PROJECT_ROOT}\src\ValispacePushValue.m</file>
+      <file>${PROJECT_ROOT}\src\ValispacePut.m</file>
+      <file>${PROJECT_ROOT}\src\ValispaceRequest.m</file>
+    </fileset.rootfiles>
+    <fileset.depfun.included />
+    <fileset.depfun.excluded />
+    <fileset.package />
+    <build-deliverables>
+      <file location="${PROJECT_ROOT}" name="ValispaceMatlabToolbox.mltbx" optional="false">C:\Github\ValispaceMatlabToolbox\ValispaceMatlabToolbox.mltbx</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>C:\Program Files\MATLAB\R2023b</root>
+      <toolboxes />
+    </matlab>
+    <platform>
+      <unix>false</unix>
+      <mac>false</mac>
+      <windows>true</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>10.0</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>win64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>
