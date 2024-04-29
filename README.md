@@ -1,6 +1,6 @@
 # Valispace Matlab Toolbox
 
-To install the Valispace Matlab Toolbox download the file ValispaceMatlabToolbox.mlappinstall and install the toolbox via double-click. You can then activate it by clicking the Valispace Toolbox Icon in your Apps Ribbon inside Matlab.
+To install the Valispace Matlab Toolbox download the file ValispaceMatlabToolbox.mltbx and install the toolbox via double-click. It will then be active on your Matlab installation but you can disable or uninstall it via the Matlab Add-On Manager.
 
 ## Usage
 
