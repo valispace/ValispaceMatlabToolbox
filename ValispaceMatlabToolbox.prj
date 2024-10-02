@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.toolbox" plugin-version="1.0">
-  <configuration file="C:\Github\ValispaceMatlabToolbox\ValispaceMatlabToolbox.prj" location="C:\Github\ValispaceMatlabToolbox" name="ValispaceMatlabToolbox" target="target.toolbox" target-name="Package Toolbox">
+  <configuration build-checksum="3705177216" file="C:\Github\ValispaceMatlabToolbox\ValispaceMatlabToolbox.prj" location="C:\Github\ValispaceMatlabToolbox" name="ValispaceMatlabToolbox" target="target.toolbox" target-name="Package Toolbox">
     <param.appname>ValispaceMatlabToolbox</param.appname>
     <param.authnamewatermark>Valispace</param.authnamewatermark>
     <param.email>support@valispace.com</param.email>
@@ -46,9 +46,9 @@ Contribute
 The source files of the toolbox are in the src folder. To contribute to the toolbox, edit those files and create a new package from the ValispaceMatlabToolbox.prj file before submitting a pull request.
 
 Version
-The current version of the Matlab toolbox is 1.3.5</param.description>
+The current version of the Matlab toolbox is 1.3.6</param.description>
     <param.screenshot>C:\Users\anton.VALISPACE-SM-AS\OneDrive - Altium LLC\Pictures\Valispace\Valispace Logo.png</param.screenshot>
-    <param.version>1.3.5</param.version>
+    <param.version>1.3.6.10</param.version>
     <param.output>${PROJECT_ROOT}\ValispaceMatlabToolbox.mltbx</param.output>
     <param.products.name />
     <param.products.id />
@@ -144,8 +144,15 @@ The current version of the Matlab toolbox is 1.3.5</param.description>
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>C:\Program Files\MATLAB\R2023b</root>
-      <toolboxes />
+      <root>C:\Program Files\MATLAB\R2024b</root>
+      <toolboxes>
+        <toolbox name="matlabcoder" />
+      </toolboxes>
+      <toolbox>
+        <matlabcoder>
+          <enabled>true</enabled>
+        </matlabcoder>
+      </toolbox>
     </matlab>
     <platform>
       <unix>false</unix>

@@ -1,36 +1,91 @@
-function ValispaceInit(URL,Username,Password,insecure)
+function ValispaceInit(URL, Username, Password, insecure)
+    % ValispaceInit Initializes the connection to the Valispace API using Basic Authentication
+    %
+    % Parameters:
+    %   URL       - The base URL of the Valispace instance (e.g., 'https://demonstration.valispace.com')
+    %   Username  - Your Valispace username
+    %   Password  - Your Valispace password
+    %   insecure  - (Optional) If set to 'insecure', allows HTTP connections
 
-% check for SSL connection, before sending the username and password
-    if (strncmpi(URL,'http://',7))
-        if (exist('insecure', 'var') && strcmp(insecure, 'insecure'))
-            warning('You are sending your password-credentials using an unencrypted connection. Better use "https://..." instead!');
+    % Declare ValispaceLogin as global
+    global ValispaceLogin
+
+    %% Step 1: Validate Inputs
+    if ~(ischar(URL) || isstring(URL)) || ~isscalar(URL)
+        error('VALISPACE-ERROR: URL must be a scalar string or character vector.');
+    end
+    if ~(ischar(Username) || isstring(Username)) || ~isscalar(Username)
+        error('VALISPACE-ERROR: Username must be a scalar string or character vector.');
+    end
+    if ~(ischar(Password) || isstring(Password)) || ~isscalar(Password)
+        error('VALISPACE-ERROR: Password must be a scalar string or character vector.');
+    end
+
+    %% Step 2: Check for SSL Connection
+    if startsWith(URL, 'http://', 'IgnoreCase', true)
+        if exist('insecure', 'var') && strcmpi(insecure, 'insecure')
+            warning(['You are sending your credentials over an unencrypted connection. ' ...
+                     'It is highly recommended to use "https://..." instead!']);
         else
-            error('VALISPACE-ERROR: You are trying to send your password-credentials using an unencrypted connection. Better use "https://..." instead! If you still want to go ahead with an insecure connection, please use ValisapceInit() with "insecure" as a last argument.');
+            error(['VALISPACE-ERROR: You are attempting to send credentials over an unencrypted ' ...
+                   'connection. Please use "https://..." for secure communication. ' ...
+                   'If you intend to proceed with an insecure connection, use ValispaceInit() ' ...
+                   'with "insecure" as the last argument.']);
         end
     end
 
-
-%ValispaceInit performs the password based oAuth 2.0 login for resd/write access
-    if (URL(end)=='/')
-        BasicUrl = URL(1:end-1);
+    %% Step 3: Remove Trailing Slash from URL
+    if endsWith(URL, '/')
+        BasicUrl = extractBefore(URL, strlength(URL));
     else
         BasicUrl = URL;
     end
-    oAuthUrl = strcat(BasicUrl, '/o/token/');
-    client_id = 'docs.valispace.com/user-guide/addons/#matlab'; % registered client-id in Valispace Deployment
-    result = webwrite(oAuthUrl,'grant_type','password','username',Username,'password',Password,'client_id',client_id);
-    
-    access = horzcat('Bearer ', result.access_token);
-    
-    global ValispaceLogin;
-    if verLessThan('matlab', '9.1')    % HeaderFields was introduced in 2016b (9.1)
-        ValispaceLogin.options = weboptions('Timeout', 200, 'ContentType', 'json', 'KeyName', 'Authorization', 'KeyValue', access);
-    else
-        ValispaceLogin.options = weboptions('Timeout', 200, 'HeaderFields', {'Authorization' access; 'Content-Type' 'application/json'});
-    end
-    
-    ValispaceLogin.url = strcat(BasicUrl, '/rest/'); 
 
-    display(strcat('VALISPACE: You have been successfully connected to the ', ValispaceLogin.url, ' API.'));
- 
+    % Ensure BasicUrl is scalar
+    if ~isscalar(BasicUrl)
+        error('VALISPACE-ERROR: BasicUrl is not scalar after removing trailing slash.');
+    end
+
+    %% Step 4: Encode Credentials for Basic Authentication
+    credentials = [char(Username) ':' char(Password)];  % Ensure inputs are character vectors
+    encodedCredentials = matlab.net.base64encode(credentials);
+    authHeader = ['Basic ' encodedCredentials];
+
+    %% Step 5: Configure HeaderFields Correctly
+    headerFields = {...
+        'Authorization', authHeader; ...
+        'Content-Type', 'application/json' ...
+    };
+
+    %% Step 6: Configure Web Options with Correct HeaderFields
+    ValispaceLogin.options = weboptions(...
+        'Timeout', 200, ...
+        'HeaderFields', headerFields, ...
+        'ContentType', 'json' ...
+    );
+
+    %% Step 7: Debugging - Display HeaderFields Structure
+    %% disp('HeaderFields Structure:');
+    % disp(ValispaceLogin.options.HeaderFields);
+
+    % Additional Debugging: Verify HeaderFields type and size
+    % disp('HeaderFields Class:');
+    % disp(class(ValispaceLogin.options.HeaderFields));
+
+    % disp('HeaderFields Size:');
+    % disp(size(ValispaceLogin.options.HeaderFields));
+
+    %% Step 8: Set the Base API URL
+    ValispaceLogin.url = append(BasicUrl, '/rest/');
+
+    % Ensure ValispaceLogin.url is scalar
+    if ~isscalar(ValispaceLogin.url)
+        error('VALISPACE-ERROR: ValispaceLogin.url is not scalar after concatenation.');
+    end
+
+    %% Step 9: Debugging - Display ValispaceLogin.url
+    disp('ValispaceLogin.url:');
+    disp(ValispaceLogin.url);
+    % disp(['Class: ', class(ValispaceLogin.url)]);
+    % disp(['Size: ', mat2str(size(ValispaceLogin.url))]);
 end
