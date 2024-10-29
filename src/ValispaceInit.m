@@ -1,12 +1,11 @@
-function ValispaceInit(URL, Username, Password, insecure)
-    % ValispaceInit Initializes the connection to the Valispace API using Basic Authentication
+function ValispaceInit(URL, APIToken, insecure)
+    % ValispaceInit Initializes the connection to the Valispace API using an API Access Token
     %
     % Parameters:
     %   URL       - The base URL of the Valispace instance (e.g., 'https://demonstration.valispace.com')
-    %   Username  - Your Valispace username
-    %   Password  - Your Valispace password
+    %   APIToken  - Your Valispace API Access Token
     %   insecure  - (Optional) If set to 'insecure', allows HTTP connections
-
+    
     % Declare ValispaceLogin as global
     global ValispaceLogin
 
@@ -14,11 +13,8 @@ function ValispaceInit(URL, Username, Password, insecure)
     if ~(ischar(URL) || isstring(URL)) || ~isscalar(URL)
         error('VALISPACE-ERROR: URL must be a scalar string or character vector.');
     end
-    if ~(ischar(Username) || isstring(Username)) || ~isscalar(Username)
-        error('VALISPACE-ERROR: Username must be a scalar string or character vector.');
-    end
-    if ~(ischar(Password) || isstring(Password)) || ~isscalar(Password)
-        error('VALISPACE-ERROR: Password must be a scalar string or character vector.');
+    if ~(ischar(APIToken) || isstring(APIToken)) || ~isscalar(APIToken)
+        error('VALISPACE-ERROR: APIToken must be a scalar string or character vector.');
     end
 
     %% Step 2: Check for SSL Connection
@@ -46,36 +42,33 @@ function ValispaceInit(URL, Username, Password, insecure)
         error('VALISPACE-ERROR: BasicUrl is not scalar after removing trailing slash.');
     end
 
-    %% Step 4: Encode Credentials for Basic Authentication
-    credentials = [char(Username) ':' char(Password)];  % Ensure inputs are character vectors
-    encodedCredentials = matlab.net.base64encode(credentials);
-    authHeader = ['Basic ' encodedCredentials];
+    %% Step 4: Configure HeaderFields with Bearer Token
+    % Construct the Authorization header
+    authHeader = ['Bearer ' char(APIToken)];
 
-    %% Step 5: Configure HeaderFields Correctly
+    % Verify authHeader is a scalar string or character vector
+    if ~(ischar(authHeader) || isstring(authHeader)) || ~isscalar(authHeader)
+        error('VALISPACE-ERROR: authHeader must be a scalar string or character vector.');
+    end
+
+    % Define HeaderFields as an Mx2 cell array
     headerFields = {...
         'Authorization', authHeader; ...
         'Content-Type', 'application/json' ...
     };
 
-    %% Step 6: Configure Web Options with Correct HeaderFields
-    ValispaceLogin.options = weboptions(...
-        'Timeout', 200, ...
-        'HeaderFields', headerFields, ...
-        'ContentType', 'json' ...
-    );
+    %% Step 5: Configure Web Options with Correct HeaderFields
+    try
+        ValispaceLogin.options = weboptions(...
+            'Timeout', 200, ...
+            'HeaderFields', headerFields, ...
+            'ContentType', 'json' ...
+        );
+    catch ME
+        error(['VALISPACE-ERROR: Failed to set web options. ' ME.message]);
+    end
 
-    %% Step 7: Debugging - Display HeaderFields Structure
-    %% disp('HeaderFields Structure:');
-    % disp(ValispaceLogin.options.HeaderFields);
-
-    % Additional Debugging: Verify HeaderFields type and size
-    % disp('HeaderFields Class:');
-    % disp(class(ValispaceLogin.options.HeaderFields));
-
-    % disp('HeaderFields Size:');
-    % disp(size(ValispaceLogin.options.HeaderFields));
-
-    %% Step 8: Set the Base API URL
+    %% Step 6: Set the Base API URL
     ValispaceLogin.url = append(BasicUrl, '/rest/');
 
     % Ensure ValispaceLogin.url is scalar
@@ -83,9 +76,12 @@ function ValispaceInit(URL, Username, Password, insecure)
         error('VALISPACE-ERROR: ValispaceLogin.url is not scalar after concatenation.');
     end
 
-    %% Step 9: Debugging - Display ValispaceLogin.url
+    %% Step 7: Debugging - Display HeaderFields Structure and Base URL
+    disp('HeaderFields Structure:');
+    disp(ValispaceLogin.options.HeaderFields);
+
     disp('ValispaceLogin.url:');
     disp(ValispaceLogin.url);
-    % disp(['Class: ', class(ValispaceLogin.url)]);
-    % disp(['Size: ', mat2str(size(ValispaceLogin.url))]);
+    disp(['Class: ', class(ValispaceLogin.url)]);
+    disp(['Size: ', mat2str(size(ValispaceLogin.url))]);
 end
