@@ -1,12 +1,12 @@
 <deployment-project plugin="plugin.toolbox" plugin-version="1.0">
-  <configuration build-checksum="838109466" file="C:\Github\ValispaceMatlabToolbox\ValispaceMatlabToolbox.prj" location="C:\Github\ValispaceMatlabToolbox" name="ValispaceMatlabToolbox" target="target.toolbox" target-name="Package Toolbox">
+  <configuration build-checksum="2975701287" file="C:\Github\ValispaceMatlabToolbox\ValispaceMatlabToolbox.prj" location="C:\Github\ValispaceMatlabToolbox" name="ValispaceMatlabToolbox" target="target.toolbox" target-name="Package Toolbox">
     <param.appname>ValispaceMatlabToolbox</param.appname>
     <param.authnamewatermark>Valispace</param.authnamewatermark>
     <param.email>support@valispace.com</param.email>
     <param.company>Altium</param.company>
-    <param.summary>A simple toolbox that provides connectivity to the Valispace API.</param.summary>
+    <param.summary>A simple toolbox that provides connectivity to the A365 Requirements &amp; Systems Portal (powered by Valispace) API.</param.summary>
     <param.description>Valispace Matlab Toolbox
-To install the Valispace Matlab Toolbox download the file ValispaceMatlabToolbox.mltbx and install the toolbox via double-click. It will then be active on your Matlab installation but you can disable or uninstall it via the Matlab Add-On Manager.
+To install the Valispce Matlab Toolbox download the file ValispaceMatlabToolbox.mltbx and install the toolbox via double-click. It will then be active on your Matlab installation but you can disable or uninstall it via the Matlab Add-On Manager.
 
 Usage
 Example usage:
@@ -47,7 +47,7 @@ The source files of the toolbox are in the src folder. To contribute to the tool
 
 Version
 The current version of the Matlab toolbox is 1.3.7</param.description>
-    <param.screenshot>C:\Users\anton.VALISPACE-SM-AS\OneDrive - Altium LLC\Pictures\Valispace\Valispace Logo.png</param.screenshot>
+    <param.screenshot>${PROJECT_ROOT}\A365-logo-vertical-BLK.png</param.screenshot>
     <param.version>1.3.7.04</param.version>
     <param.output>${PROJECT_ROOT}\ValispaceMatlabToolbox.mltbx</param.output>
     <param.products.name />
