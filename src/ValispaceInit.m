@@ -1,16 +1,14 @@
-function ValispaceInit(URL, APIToken, insecure)
+function ValispaceInit(URL, APIToken)
     % ValispaceInit Initializes the connection to the Valispace API using a Bearer Token
     %
     % Parameters:
     %   URL       - The base URL of the Valispace instance (e.g., 'https://demonstration.valispace.com')
     %   APIToken  - Your Valispace API Access Token
-    %   insecure  - (Optional) If set to 'insecure', allows HTTP connections (not recommended)
 
-    % Declare ValispaceLogin as global
-    global ValispaceLogin
+    % Remove global declaration and use a local structure
 
     %% Check Number of Inputs
-    narginchk(2, 3); % URL and APIToken are required, insecure is optional
+    narginchk(2, 2); % Only URL and APIToken are required
 
     %% Step 1: Validate Inputs
     if ~(ischar(URL) || isstring(URL)) || ~isscalar(URL)
@@ -20,17 +18,10 @@ function ValispaceInit(URL, APIToken, insecure)
         error('VALISPACE-ERROR: APIToken must be a scalar string or character vector.');
     end
 
-    %% Step 2: Check for SSL Connection
+    %% Step 2: Enforce SSL Connection
     if startsWith(URL, 'http://', 'IgnoreCase', true)
-        if nargin == 3 && strcmpi(insecure, 'insecure')
-            warning(['You are sending your credentials over an unencrypted connection. ' ...
-                     'It is highly recommended to use "https://..." instead!']);
-        else
-            error(['VALISPACE-ERROR: You are attempting to send credentials over an unencrypted ' ...
-                   'connection. Please use "https://..." for secure communication. ' ...
-                   'If you intend to proceed with an insecure connection, use ValispaceInit() ' ...
-                   'with "insecure" as the last argument.']);
-        end
+        error(['VALISPACE-ERROR: Insecure connections are not allowed. ' ...
+               'Please use "https://..." for secure communication.']);
     end
 
     %% Step 3: Remove Trailing Slash from URL
@@ -43,32 +34,27 @@ function ValispaceInit(URL, APIToken, insecure)
     %% Step 4: Construct Authorization Header
     authHeader = sprintf('Bearer %s', APIToken);
 
-    %% Step 5: Validate authHeader
-    % if ~(ischar(authHeader) || isstring(authHeader)) || ~isscalar(authHeader)
-        % error('VALISPACE-ERROR: authHeader must be a scalar string or character vector.');
-    % end
-
-    %% Step 6: Define HeaderFields as Mx2 Cell Array
+    %% Step 5: Define HeaderFields as Mx2 Cell Array
     headerFields = {...
         'Authorization', authHeader; ...
         'Content-Type', 'application/json' ...
     };
 
-    %% Step 7: Configure Web Options with HeaderFields
+    %% Step 6: Configure Web Options with HeaderFields
     try
+        ValispaceLogin.options = weboptions(...
         ValispaceLogin.options = weboptions(...
             'Timeout', 200, ...
             'HeaderFields', headerFields, ...
             'ContentType', 'json' ...
         );
-    catch ME
         error(['VALISPACE-ERROR: Failed to set web options. ' ME.message]);
     end
 
-    %% Step 8: Set the Base API URL
+    %% Step 7: Set the Base API URL
     ValispaceLogin.url = append(BasicUrl, '/rest/');
 
-    %% Step 9: Verify and Display Configuration
+    %% Step 8: Verify and Display Configuration
     % Check if ValispaceLogin.url is scalar
     if ~isscalar(ValispaceLogin.url)
         error('VALISPACE-ERROR: ValispaceLogin.url is not scalar after concatenation.');
